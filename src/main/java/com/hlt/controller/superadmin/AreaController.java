@@ -49,5 +49,4 @@ public class AreaController {
 
         return modelMap;
     }
-
 }
