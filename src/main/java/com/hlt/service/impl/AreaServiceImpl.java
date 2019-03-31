@@ -15,7 +15,7 @@ public class AreaServiceImpl implements AreaService {
 
     @Autowired
     private AreaDao areaDao;
-
+//    列出区域列表
     @Override
     public List<Area> getAreaList() {
         return areaDao.queryArea();

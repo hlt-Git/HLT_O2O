@@ -13,6 +13,7 @@ import java.util.List;
 public class ShopCategoryServiceImpl implements ShopCategoryService {
     @Autowired
     private ShopCategoryDao shopCategoryDao;
+    //    查询店铺类别
     @Override
     public List<ShopCategory> getShopCategoryList(ShopCategory shopCategoryCondition) {
         return shopCategoryDao.queryShopCategory(shopCategoryCondition);

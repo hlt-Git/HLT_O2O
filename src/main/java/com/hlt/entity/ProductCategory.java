@@ -7,7 +7,8 @@ public class ProductCategory {
     //店铺ID
     private Long shopId;
     private String productCategoryName;
-    private Integer priorityl;
+    //优先级
+    private Integer priority;
     private Date createTime;
 
     public Long getProductCategoryId() { return productCategoryId; }
@@ -22,9 +23,9 @@ public class ProductCategory {
 
     public void setProductCategoryName(String productCategoryName) { this.productCategoryName = productCategoryName; }
 
-    public Integer getPriorityl() { return priorityl; }
+    public Integer getPriority() { return priority; }
 
-    public void setPriorityl(Integer priorityl) { this.priorityl = priorityl; }
+    public void setPriority(Integer priority) { this.priority = priority; }
 
     public Date getCreateTime() { return createTime; }
 

@@ -220,6 +220,13 @@
       <version>RELEASE</version>
       <scope>compile</scope>
     </dependency>
+    <!-- 解析XML方法的jar -->
+    <dependency>
+      <groupId>dom4j</groupId>
+      <artifactId>dom4j</artifactId>
+      <version>1.6.1</version>
+    </dependency>
+
   </dependencies>
 
   <build>

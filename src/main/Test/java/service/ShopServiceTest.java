@@ -7,6 +7,7 @@ import com.hlt.entity.PersonInfo;
 import com.hlt.entity.Shop;
 import com.hlt.entity.ShopCategory;
 import com.hlt.enums.ShopStateEnum;
+import com.hlt.exceptions.ShopOperationException;
 import com.hlt.service.ShopService;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,29 @@ import static org.junit.Assert.assertEquals;
 public class ShopServiceTest extends BaseTest {
     @Autowired
     private ShopService shopService;
+
+    @Test
+    public void testGetShopList(){
+        Shop shopCondition = new Shop();
+        ShopCategory sc = new ShopCategory();
+        sc.setShopCategoryId(3L);
+        shopCondition.setShopCategory(sc);
+        ShopExecution se = shopService.getShopList(shopCondition, 1, 2);
+        System.out.println("店铺列表数为：" + se.getShopList().size());
+        System.out.println("店铺总数为：" + se.getCount());
+    }
+
+    @Test
+    public void testModifyShop() throws ShopOperationException,FileNotFoundException{
+        Shop shop = new Shop();
+        shop.setShopId(1L);
+        shop.setShopName("修改后的店铺名称");
+        File shopImg = new File("C:/Users/胡栗涛/Desktop/resource/image/logo2.jpg");
+        InputStream is = new FileInputStream(shopImg);
+        ShopExecution shopExecution = shopService.modifyShop(shop, is, "logo2.jpg");
+        System.out.println("新的图片地址：" + shopExecution.getShop().getShopImg());
+    }
+
     @Test
     public void testAddShop() throws FileNotFoundException {
         Shop shop = new Shop();

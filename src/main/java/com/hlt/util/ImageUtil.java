@@ -62,4 +62,22 @@ public class ImageUtil {
                 .outputQuality(0.8f).toFile("C:/Users/胡栗涛/Desktop/resource/UtilImage/newxiaohuangren1.jpg");
 
     }
+
+    /*
+        如果storePath是文件路径则删除该文件
+        如果storePath是目录路径则删除该目录下的所有文件
+    */
+    public static void deleteFileOrPath(String storePath){
+        File fileOrPath = new File(PathUtil.getImgBasePath() + storePath);
+        if (fileOrPath.exists()){           //判断文件是否存在
+            if (fileOrPath.isDirectory()){  //检查一个对象是否是文件夹
+                File files[] = fileOrPath.listFiles();
+                for (int i = 0;i < files.length;i++){
+                    files[i].delete();
+                }
+            }
+            fileOrPath.delete();
+        }
+    }
+
 }

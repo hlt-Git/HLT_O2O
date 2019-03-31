@@ -12,6 +12,7 @@ import static junit.framework.TestCase.assertEquals;
 public class ShopCategoryDaoTest extends BaseTest {
     @Autowired
     private ShopCategoryDao shopCategoryDao;
+
     @Test
     public void testQueryShopCategory(){
         List<ShopCategory> shopCategoryList = shopCategoryDao.queryShopCategory(new ShopCategory());

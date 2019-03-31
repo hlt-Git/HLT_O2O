@@ -12,6 +12,7 @@ public class AreaDaoTest extends BaseTest {
     @Autowired
     private AreaDao areaDao;
 
+//    测试获取全部区域信息
     @Test
     public void testQueryArea(){
         List<Area> areaList = areaDao.queryArea();

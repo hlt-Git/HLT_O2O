@@ -1,6 +1,9 @@
-2019-03-03 11:33:37.734 [%PARSER_ERROR[thead]] DEBUG com.hlt.dao.ShopDao.insertShop - ==>  Preparing: insert into tb_shop(owner_id,area_id,shop_category_id,shop_name,shop_desc,shop_addr, phone,shop_img,priority,create_time,last_edit_time,enable_status,advice) values (?,?,?,?, ?,?,?,?,?,?,?, ?,?) 
-2019-03-03 11:33:37.768 [%PARSER_ERROR[thead]] DEBUG com.hlt.dao.ShopDao.insertShop - ==> Parameters: 1(Long), 2(Integer), 1(Long), 添加的店铺3(String), 店铺3的描述(String), 店铺3的地址(String), 店铺3的电话(String), null, null, 2019-03-03 11:33:37.696(Timestamp), 2019-03-03 11:33:37.696(Timestamp), 0(Integer), 审核中(String)
-2019-03-03 11:33:37.782 [%PARSER_ERROR[thead]] DEBUG com.hlt.dao.ShopDao.insertShop - <==    Updates: 1
-2019-03-03 11:33:38.022 [%PARSER_ERROR[thead]] DEBUG com.hlt.dao.ShopDao.updateShop - ==>  Preparing: update tb_shop SET shop_name=?, shop_desc=?, shop_addr=?, phone=?, shop_img=?, create_time=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, shop_category_id=? where shop_id=? 
-2019-03-03 11:33:38.023 [%PARSER_ERROR[thead]] DEBUG com.hlt.dao.ShopDao.updateShop - ==> Parameters: 添加的店铺3(String), 店铺3的描述(String), 店铺3的地址(String), 店铺3的电话(String), upload\item\shop\13\2019030311333759199.jpg(String), 2019-03-03 11:33:37.696(Timestamp), 2019-03-03 11:33:37.696(Timestamp), 0(Integer), 审核中(String), 2(Integer), 1(Long), 13(Long)
-2019-03-03 11:33:38.026 [%PARSER_ERROR[thead]] DEBUG com.hlt.dao.ShopDao.updateShop - <==    Updates: 1
+2019-03-30 19:58:12.506 [%PARSER_ERROR[thead]] DEBUG com.hlt.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: select shop_category_id,shop_category_name,shop_category_desc,shop_category_img,priority,create_time,last_edit_time,parent_id from tb_shop_category WHERE parent_id is not null ORDER BY priority DESC 
+2019-03-30 19:58:12.557 [%PARSER_ERROR[thead]] DEBUG com.hlt.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 
+2019-03-30 19:58:12.587 [%PARSER_ERROR[thead]] DEBUG com.hlt.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2
+2019-03-30 19:58:12.598 [%PARSER_ERROR[thead]] DEBUG com.hlt.dao.ShopCategoryDao.queryShopCategory - ==>  Preparing: select shop_category_id,shop_category_name,shop_category_desc,shop_category_img,priority,create_time,last_edit_time,parent_id from tb_shop_category WHERE parent_id is not null and parent_id = ? ORDER BY priority DESC 
+2019-03-30 19:58:12.601 [%PARSER_ERROR[thead]] DEBUG com.hlt.dao.ShopCategoryDao.queryShopCategory - ==> Parameters: 1(Long)
+2019-03-30 19:58:12.603 [%PARSER_ERROR[thead]] DEBUG com.hlt.dao.ShopCategoryDao.queryShopCategory - <==      Total: 2
+2019-03-30 20:58:51.117 [%PARSER_ERROR[thead]] DEBUG c.h.d.P.batchInsertProductCategory - ==>  Preparing: INSERT INTO tb_product_category(product_category_name,priority,create_time,shop_id) VALUES ( ?, ?, ?, ? ) , ( ?, ?, ?, ? ) 
+2019-03-30 20:58:51.155 [%PARSER_ERROR[thead]] DEBUG c.h.d.P.batchInsertProductCategory - ==> Parameters: 商品类别1(String), 1(Integer), 2019-03-30 20:58:50.801(Timestamp), 1(Long), 商品类别2(String), 2(Integer), 2019-03-30 20:58:50.801(Timestamp), 1(Long)
+2019-03-30 20:58:51.170 [%PARSER_ERROR[thead]] DEBUG c.h.d.P.batchInsertProductCategory - <==    Updates: 2
