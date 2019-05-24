@@ -6,6 +6,7 @@ public class ProductImg {
     private long productImgId;
     private String imgAddr;
     private String imgDesc;
+    //优先级
     private Integer priority;
     private Date createTime;
     private Long productId;

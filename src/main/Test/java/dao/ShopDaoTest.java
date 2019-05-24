@@ -13,8 +13,8 @@ import javax.sound.midi.Soundbank;
 import java.sql.SQLOutput;
 import java.util.Date;
 import java.util.List;
+import static org.junit.Assert.assertEquals;
 
-import static junit.framework.TestCase.assertEquals;
 
 public class ShopDaoTest extends BaseTest {
     @Autowired
@@ -28,6 +28,9 @@ public class ShopDaoTest extends BaseTest {
         shopCondition.setOwner(owner);
         List<Shop> shopList = shopDao.queryShopList(shopCondition, 0, 5);
         int count = shopDao.queryShopCount(shopCondition);
+        for (Shop shop : shopList) {
+            System.out.println(shop);
+        }
         System.out.println("店铺列表大小：" + shopList.size());
         System.out.println("店铺总数：" + count);
         ShopCategory sc = new ShopCategory();

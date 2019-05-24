@@ -117,6 +117,7 @@
         s.last_edit_time,
         s.enable_status,
         s.advice,
+
         a.area_id,
         a.area_name,
         sc.shop_category_id,

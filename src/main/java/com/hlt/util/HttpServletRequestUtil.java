@@ -29,7 +29,7 @@ public class HttpServletRequestUtil {
         }
     }
 
-    public static boolean getBoolen(HttpServletRequest request,String key){
+    public static boolean getBoolean(HttpServletRequest request,String key){
         try {
             return Boolean.valueOf(request.getParameter(key));
         }catch (Exception e){

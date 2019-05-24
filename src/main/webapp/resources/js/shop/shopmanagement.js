@@ -1,6 +1,7 @@
 $(function () {
     var shopId = getQueryString('shopId');
     var shopInfoUrl = '/shopadmin/getshopmanagementinfo?shopId=' + shopId;
+    $.toast('shopmanagement.js里获取Id：' + shopId);
     $.getJSON(shopInfoUrl,function (data) {
         if (data.redirect) {
             window.location.href = data.url;

@@ -7,7 +7,7 @@ import com.hlt.entity.ShopCategory;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
-import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class ShopCategoryDaoTest extends BaseTest {
     @Autowired

@@ -21,9 +21,9 @@ public class Product {
     //商品和商品详情图是一对多的关系
     private List<ProductImg> productImgList;
     //商品类别ID
-    private ProductCategory productCategoryId;
+    private ProductCategory productCategory;
     //店铺ID
-    private Shop shopId;
+    private Shop shop;
 
     public Long getProductId() { return productId; }
 
@@ -69,11 +69,11 @@ public class Product {
 
     public void setProductImgList(List<ProductImg> productImgList) { this.productImgList = productImgList; }
 
-    public ProductCategory getProductCategoryId() { return productCategoryId; }
+    public ProductCategory getProductCategory() { return productCategory; }
 
-    public void setProductCategoryId(ProductCategory productCategoryId) { this.productCategoryId = productCategoryId; }
+    public void setProductCategory(ProductCategory productCategory) { this.productCategory = productCategory; }
 
-    public Shop getShopId() { return shopId; }
+    public Shop getShop() { return shop; }
 
-    public void setShopId(Shop shopId) { this.shopId = shopId; }
+    public void setShop(Shop shop) { this.shop = shop; }
 }

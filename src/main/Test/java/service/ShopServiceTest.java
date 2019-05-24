@@ -1,6 +1,7 @@
 package service;
 
 import Base.BaseTest;
+import com.hlt.dto.ImageHolder;
 import com.hlt.dto.ShopExecution;
 import com.hlt.entity.Area;
 import com.hlt.entity.PersonInfo;
@@ -41,7 +42,8 @@ public class ShopServiceTest extends BaseTest {
         shop.setShopName("修改后的店铺名称");
         File shopImg = new File("C:/Users/胡栗涛/Desktop/resource/image/logo2.jpg");
         InputStream is = new FileInputStream(shopImg);
-        ShopExecution shopExecution = shopService.modifyShop(shop, is, "logo2.jpg");
+        ImageHolder imageHolder = new ImageHolder("logo2.jpg", is);
+        ShopExecution shopExecution = shopService.modifyShop(shop,imageHolder);
         System.out.println("新的图片地址：" + shopExecution.getShop().getShopImg());
     }
 
@@ -66,7 +68,8 @@ public class ShopServiceTest extends BaseTest {
         shop.setAdvice("审核中");
         File shopImg = new File("C:/Users/胡栗涛/Desktop/resource/image/xiaohuangren1.jpg");
         InputStream is = new FileInputStream(shopImg);
-        ShopExecution se = shopService.addShop(shop,is,shopImg.getName());
+        ImageHolder imageHolder = new ImageHolder(shopImg.getName(), is);
+        ShopExecution se = shopService.addShop(shop,imageHolder);
         assertEquals(ShopStateEnum.CHECK.getState(),se.getState());
     }
 }

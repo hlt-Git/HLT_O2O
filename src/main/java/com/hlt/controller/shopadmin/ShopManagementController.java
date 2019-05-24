@@ -1,6 +1,7 @@
 package com.hlt.controller.shopadmin;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.hlt.dto.ImageHolder;
 import com.hlt.dto.ShopExecution;
 import com.hlt.entity.Area;
 import com.hlt.entity.PersonInfo;
@@ -47,6 +48,9 @@ public class ShopManagementController {
     private Map<String,Object> getShopManagementInfo(HttpServletRequest request){
         Map<String,Object> modelMap = new HashMap<String, Object>();
         long shopId = HttpServletRequestUtil.getLong(request,"shopId");
+        //测试
+        System.out.println("shopmanagement传入的id：" + shopId);
+
         if (shopId <= 0){
             Object currentShopObj = request.getSession().getAttribute("currentShop");
             if(currentShopObj == null){
@@ -190,7 +194,8 @@ public class ShopManagementController {
             }*/
 
             try {
-                se = shopService.addShop(shop,shopImg.getInputStream(),shopImg.getOriginalFilename());
+                ImageHolder imageHolder = new ImageHolder(shopImg.getOriginalFilename(), shopImg.getInputStream());
+                se = shopService.addShop(shop,imageHolder);
                 if(se.getState() == ShopStateEnum.CHECK.getState()){
                     modelMap.put("success",true);
                     //该用户可以操作的店铺列表
@@ -271,9 +276,10 @@ public class ShopManagementController {
 
             try {
                 if (shopImg == null){
-                    se = shopService.modifyShop(shop,null,null);    //不用修改店铺图片信息
+                    se = shopService.modifyShop(shop,null);    //不用修改店铺图片信息
                 }else {
-                    se = shopService.modifyShop(shop,shopImg.getInputStream(),shopImg.getOriginalFilename());
+                    ImageHolder imageHolder = new ImageHolder(shopImg.getOriginalFilename(), shopImg.getInputStream());
+                    se = shopService.modifyShop(shop,imageHolder);
                 }
                 if(se.getState() == ShopStateEnum.CHECK.getState()){
                     modelMap.put("success",true);

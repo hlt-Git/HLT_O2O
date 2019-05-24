@@ -1,9 +1,9 @@
 package com.hlt.util;
 
+//获取图片路径
 public class PathUtil {
 
     private static String seperator = System.getProperty("file.separator");     //获得系统的分隔符
-
     public static String getImgBasePath(){      //获得项目存放图片的根路径
 
         String os = System.getProperty("os.name");                      //获得操作系统的名称
@@ -21,5 +21,4 @@ public class PathUtil {
         String imagePath = "upload/item/shop/" + shopId + "/";
         return imagePath.replace("/",seperator);
    }
-
 }

@@ -3,18 +3,20 @@ package dao;
 import Base.BaseTest;
 import com.hlt.dao.ProductCategoryDao;
 import com.hlt.entity.ProductCategory;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertEquals;
 
+//@FixMethodOrder(MethodSorters.NAME_ASCENDING)   //控制测试的注解：按照方法的名字顺序去执行,字典顺序
 public class ProductCategoryDaoTest extends BaseTest {
     @Autowired
     private ProductCategoryDao productCategoryDao;
-
 
     @Test
     public void testQueryByShopId() throws Exception{
@@ -45,4 +47,15 @@ public class ProductCategoryDaoTest extends BaseTest {
         assertEquals(2,effectedNum);
     }
 
+    @Test
+    public void testCDeleteProductCategory() throws Exception{
+        long shopId = 1;
+        List<ProductCategory> productCategoryList = productCategoryDao.queryProductCategoryList(shopId);
+        for ( ProductCategory pc : productCategoryList) {
+            if ("商品类别1".equals(pc.getProductCategoryName())||"商品类别2".equals(pc.getProductCategoryName())){
+                int effectedNum = productCategoryDao.deleteProductCategory(pc.getProductCategoryId(),shopId);
+                assertEquals(1,effectedNum);
+            }
+        }
+    }
 }

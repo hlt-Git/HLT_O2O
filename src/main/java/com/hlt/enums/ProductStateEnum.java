@@ -1,12 +1,14 @@
 package com.hlt.enums;
 
-public enum ProductCategoryStateEnum {
-    SUCCESS(1, "创建成功"), INNER_ERROR(-1001, "操作失败"), EMPTY_LIST(-1002, "添加数少于1");
-    //结果状态
+public enum ProductStateEnum {
+    OFFLINE(-1, "非法商品"), SUCCESS(0, "操作成功"), PASS(2, "通过认证"), INNER_ERROR(
+            -1001, "操作失败"),EMPTY(-1002, "商品为空");
+
     private int state;
-    //状态标识
+
     private String stateInfo;
-    private ProductCategoryStateEnum(int state, String stateInfo) {
+
+    private ProductStateEnum(int state, String stateInfo) {
         this.state = state;
         this.stateInfo = stateInfo;
     }
@@ -19,13 +21,12 @@ public enum ProductCategoryStateEnum {
         return stateInfo;
     }
 
-    public static ProductCategoryStateEnum stateOf(int index) {
-        for (ProductCategoryStateEnum state : values()) {
+    public static ProductStateEnum stateOf(int index) {
+        for (ProductStateEnum state : values()) {
             if (state.getState() == index) {
                 return state;
             }
         }
         return null;
     }
-
 }

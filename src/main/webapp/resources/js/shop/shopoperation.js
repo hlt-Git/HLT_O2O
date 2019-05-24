@@ -5,6 +5,7 @@ $(function () {
     var registerShopUrl = '/shopadmin/registershop';
     var shopInfoUrl = "/shopadmin/getshopbyid?shopId=" + shopId;
     var editShopUrl = '/shopadmin/modifyshop';
+    $.toast('shopoperation.js中获取Id为：' + shopId);
     if (!isEdit){
         getShopInitInfo();
     }else {
